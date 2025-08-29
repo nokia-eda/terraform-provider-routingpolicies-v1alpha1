@@ -1,0 +1,213 @@
+app_group:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com
+      method: GET
+
+patch:
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}
+      method: PATCH
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name}
+      method: PATCH
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name}
+      method: PATCH
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}
+      method: PATCH
+
+resource_history:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}/_revs
+      method: GET
+
+resource_list:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1
+      method: GET
+
+resource_topology:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}/_topology
+      method: GET
+
+status:
+  - delete:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}
+      method: DELETE
+  - delete:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name}
+      method: DELETE
+  - delete:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name}
+      method: DELETE
+  - delete:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}
+      method: DELETE
+
+ui_result:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/_ui/{pathname}
+      method: GET
+
+com.nokia.eda.routingpolicies.v1alpha1.as_path_set:
+  - create:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets
+      method: POST
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}
+      method: GET
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}
+      method: PUT
+
+com.nokia.eda.routingpolicies.v1alpha1.as_path_set_list:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/aspathsets
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets
+      method: GET
+  - delete:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets
+      method: DELETE
+
+com.nokia.eda.routingpolicies.v1alpha1.as_path_set_deleted_resources:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/_deleted
+      method: GET
+
+com.nokia.eda.routingpolicies.v1alpha1.community_set:
+  - create:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets
+      method: POST
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name}
+      method: GET
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name}
+      method: PUT
+
+com.nokia.eda.routingpolicies.v1alpha1.community_set_list:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/communitysets
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets
+      method: GET
+  - delete:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets
+      method: DELETE
+
+com.nokia.eda.routingpolicies.v1alpha1.community_set_deleted_resources:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/_deleted
+      method: GET
+
+com.nokia.eda.routingpolicies.v1alpha1.policy:
+  - create:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys
+      method: POST
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name}
+      method: GET
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name}
+      method: PUT
+
+com.nokia.eda.routingpolicies.v1alpha1.policy_list:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys
+      method: GET
+  - delete:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys
+      method: DELETE
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/policys
+      method: GET
+
+com.nokia.eda.routingpolicies.v1alpha1.policy_deleted_resources:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/_deleted
+      method: GET
+
+com.nokia.eda.routingpolicies.v1alpha1.prefix_set:
+  - create:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets
+      method: POST
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}
+      method: GET
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}
+      method: PUT
+
+com.nokia.eda.routingpolicies.v1alpha1.prefix_set_list:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets
+      method: GET
+  - delete:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets
+      method: DELETE
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/prefixsets
+      method: GET
+
+com.nokia.eda.routingpolicies.v1alpha1.prefix_set_deleted_resources:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/_deleted
+      method: GET
+
+totalPaths: 27
+totalSchemas: 48
+usedSchemas: 19
+unusedSchemas: 29
+unusedSchemaList:
+  - AppGroupVersion
+  - ErrorIndex
+  - ErrorItem
+  - ErrorResponse
+  - K8SPatchOp
+  - OverlayState
+  - Resource
+  - ResourceHistoryEntry
+  - StatusDetails
+  - TopoAttrMetadata
+  - TopoElemMetadata
+  - TopoLinkEndpoint
+  - TopoNodeGrouping
+  - TopoOverlayEndpoint
+  - TopoOverlayEndpointState
+  - TopoOverlayLink
+  - TopoOverlayLinkState
+  - TopoOverlayNode
+  - TopoOverlayNodeState
+  - TopoSchema
+  - Topology
+  - com.nokia.eda.routingpolicies.v1alpha1.ASPathSet_DeletedResourceEntry
+  - com.nokia.eda.routingpolicies.v1alpha1.ASPathSet_metadata
+  - com.nokia.eda.routingpolicies.v1alpha1.CommunitySet_DeletedResourceEntry
+  - com.nokia.eda.routingpolicies.v1alpha1.CommunitySet_metadata
+  - com.nokia.eda.routingpolicies.v1alpha1.Policy_DeletedResourceEntry
+  - com.nokia.eda.routingpolicies.v1alpha1.Policy_metadata
+  - com.nokia.eda.routingpolicies.v1alpha1.PrefixSet_DeletedResourceEntry
+  - com.nokia.eda.routingpolicies.v1alpha1.PrefixSet_metadata
