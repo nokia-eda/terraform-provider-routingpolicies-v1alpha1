@@ -97,24 +97,24 @@ Optional:
 
 Optional:
 
-- `bgp_1` (Attributes) Actions related to the BGP protocol. (see [below for nested schema](#nestedatt--spec--statement--action--bgp_1))
+- `bgp` (Attributes) Actions related to the BGP protocol. (see [below for nested schema](#nestedatt--spec--statement--action--bgp))
 - `policy_result` (String) Final disposition for the route.
 
-<a id="nestedatt--spec--statement--action--bgp_1"></a>
-### Nested Schema for `spec.statement.action.bgp_1`
+<a id="nestedatt--spec--statement--action--bgp"></a>
+### Nested Schema for `spec.statement.action.bgp`
 
 Optional:
 
 - `as_path_prepend` (Number) AS number to prepend to the AS Path attributes.
 - `as_path_remove` (Boolean) Clear the AS path to make it empty.
 - `as_path_replace` (List of Number) Replace the existing AS path with a new AS_SEQUENCE containing the listed AS numbers.
-- `community_set_1` (Attributes) Modify BGP communities associated with the route using hybrid Community Sets. (see [below for nested schema](#nestedatt--spec--statement--action--bgp_1--community_set_1))
+- `community_set` (Attributes) Modify BGP communities associated with the route using hybrid Community Sets. (see [below for nested schema](#nestedatt--spec--statement--action--bgp--community_set))
 - `local_preference` (Number) Set a new LOCAL_PREF value for matching BGP routes.
-- `med_1` (Attributes) Set a new MED value. (see [below for nested schema](#nestedatt--spec--statement--action--bgp_1--med_1))
+- `med` (Attributes) Set a new MED value. (see [below for nested schema](#nestedatt--spec--statement--action--bgp--med))
 - `set_origin` (String) Set a new ORIGIN attribute for matching BGP routes.
 
-<a id="nestedatt--spec--statement--action--bgp_1--community_set_1"></a>
-### Nested Schema for `spec.statement.action.bgp_1.community_set_1`
+<a id="nestedatt--spec--statement--action--bgp--community_set"></a>
+### Nested Schema for `spec.statement.action.bgp.community_set`
 
 Optional:
 
@@ -123,8 +123,8 @@ Optional:
 - `replace` (List of String) List of community sets to replace the existing communities with. Cannot be combined with Add or Remove.
 
 
-<a id="nestedatt--spec--statement--action--bgp_1--med_1"></a>
-### Nested Schema for `spec.statement.action.bgp_1.med_1`
+<a id="nestedatt--spec--statement--action--bgp--med"></a>
+### Nested Schema for `spec.statement.action.bgp.med`
 
 Optional:
 
@@ -140,22 +140,22 @@ Optional:
 
 Optional:
 
-- `bgp_2` (Attributes) Configuration for BGP-specific policy match criteria. (see [below for nested schema](#nestedatt--spec--statement--match--bgp_2))
+- `bgp` (Attributes) Configuration for BGP-specific policy match criteria. (see [below for nested schema](#nestedatt--spec--statement--match--bgp))
 - `family` (List of String) Address families that the route belongs to.
 - `prefix_set` (String) Reference to a PrefixSet resource.
 - `protocol` (String) The route protocol type to match.
 
-<a id="nestedatt--spec--statement--match--bgp_2"></a>
-### Nested Schema for `spec.statement.match.bgp_2`
+<a id="nestedatt--spec--statement--match--bgp"></a>
+### Nested Schema for `spec.statement.match.bgp`
 
 Optional:
 
-- `as_path_match` (Attributes) AS Path match criteria. (see [below for nested schema](#nestedatt--spec--statement--match--bgp_2--as_path_match))
+- `as_path_match` (Attributes) AS Path match criteria. (see [below for nested schema](#nestedatt--spec--statement--match--bgp--as_path_match))
 - `community_set` (String) Match conditions for BGP communities.
 - `evpn_route_type` (List of Number) Match conditions for EVPN route types.
 
-<a id="nestedatt--spec--statement--match--bgp_2--as_path_match"></a>
-### Nested Schema for `spec.statement.match.bgp_2.as_path_match`
+<a id="nestedatt--spec--statement--match--bgp--as_path_match"></a>
+### Nested Schema for `spec.statement.match.bgp.as_path_match`
 
 Optional:
 

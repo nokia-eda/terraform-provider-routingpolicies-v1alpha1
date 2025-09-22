@@ -247,7 +247,7 @@ func PolicyResourceSchema(ctx context.Context) schema.Schema {
 							Attributes: map[string]schema.Attribute{
 								"action": schema.SingleNestedAttribute{
 									Attributes: map[string]schema.Attribute{
-										"bgp_1": schema.SingleNestedAttribute{
+										"bgp": schema.SingleNestedAttribute{
 											Attributes: map[string]schema.Attribute{
 												"as_path_prepend": schema.Int64Attribute{
 													Optional:            true,
@@ -268,7 +268,7 @@ func PolicyResourceSchema(ctx context.Context) schema.Schema {
 													Description:         "Replace the existing AS path with a new AS_SEQUENCE containing the listed AS numbers.",
 													MarkdownDescription: "Replace the existing AS path with a new AS_SEQUENCE containing the listed AS numbers.",
 												},
-												"community_set_1": schema.SingleNestedAttribute{
+												"community_set": schema.SingleNestedAttribute{
 													Attributes: map[string]schema.Attribute{
 														"add": schema.ListAttribute{
 															ElementType:         types.StringType,
@@ -315,7 +315,7 @@ func PolicyResourceSchema(ctx context.Context) schema.Schema {
 														int64validator.Between(0, 4294967295),
 													},
 												},
-												"med_1": schema.SingleNestedAttribute{
+												"med": schema.SingleNestedAttribute{
 													Attributes: map[string]schema.Attribute{
 														"numerical_value": schema.Int64Attribute{
 															Optional:            true,
@@ -405,7 +405,7 @@ func PolicyResourceSchema(ctx context.Context) schema.Schema {
 								},
 								"match": schema.SingleNestedAttribute{
 									Attributes: map[string]schema.Attribute{
-										"bgp_2": schema.SingleNestedAttribute{
+										"bgp": schema.SingleNestedAttribute{
 											Attributes: map[string]schema.Attribute{
 												"as_path_match": schema.SingleNestedAttribute{
 													Attributes: map[string]schema.Attribute{
@@ -4178,7 +4178,7 @@ func (t ActionType) ValueFromObject(ctx context.Context, in basetypes.ObjectValu
 
 	attributes := in.Attributes()
 
-	bgp1Attribute, ok := attributes["bgp_1"]
+	bgp1Attribute, ok := attributes["bgp"]
 
 	if !ok {
 		diags.AddError(
@@ -4288,7 +4288,7 @@ func NewActionValue(attributeTypes map[string]attr.Type, attributes map[string]a
 		return NewActionValueUnknown(), diags
 	}
 
-	bgp1Attribute, ok := attributes["bgp_1"]
+	bgp1Attribute, ok := attributes["bgp"]
 
 	if !ok {
 		diags.AddError(
@@ -4403,7 +4403,7 @@ func (t ActionType) ValueType(ctx context.Context) attr.Value {
 var _ basetypes.ObjectValuable = ActionValue{}
 
 type ActionValue struct {
-	Bgp1         basetypes.ObjectValue `tfsdk:"bgp_1"`
+	Bgp1         basetypes.ObjectValue `tfsdk:"bgp"`
 	PolicyResult basetypes.StringValue `tfsdk:"policy_result"`
 	state        attr.ValueState
 }
@@ -4414,7 +4414,7 @@ func (v ActionValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error
 	var val tftypes.Value
 	var err error
 
-	attrTypes["bgp_1"] = basetypes.ObjectType{
+	attrTypes["bgp"] = basetypes.ObjectType{
 		AttrTypes: Bgp1Value{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
 	attrTypes["policy_result"] = basetypes.StringType{}.TerraformType(ctx)
@@ -4431,7 +4431,7 @@ func (v ActionValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["bgp_1"] = val
+		vals["bgp"] = val
 
 		val, err = v.PolicyResult.ToTerraformValue(ctx)
 
@@ -4492,7 +4492,7 @@ func (v ActionValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, 
 	}
 
 	attributeTypes := map[string]attr.Type{
-		"bgp_1": basetypes.ObjectType{
+		"bgp": basetypes.ObjectType{
 			AttrTypes: Bgp1Value{}.AttributeTypes(ctx),
 		},
 		"policy_result": basetypes.StringType{},
@@ -4509,7 +4509,7 @@ func (v ActionValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, 
 	objVal, diags := types.ObjectValue(
 		attributeTypes,
 		map[string]attr.Value{
-			"bgp_1":         bgp1,
+			"bgp":           bgp1,
 			"policy_result": v.PolicyResult,
 		})
 
@@ -4552,7 +4552,7 @@ func (v ActionValue) Type(ctx context.Context) attr.Type {
 
 func (v ActionValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
-		"bgp_1": basetypes.ObjectType{
+		"bgp": basetypes.ObjectType{
 			AttrTypes: Bgp1Value{}.AttributeTypes(ctx),
 		},
 		"policy_result": basetypes.StringType{},
@@ -4638,7 +4638,7 @@ func (t Bgp1Type) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 			fmt.Sprintf(`as_path_replace expected to be basetypes.ListValue, was: %T`, asPathReplaceAttribute))
 	}
 
-	communitySet1Attribute, ok := attributes["community_set_1"]
+	communitySet1Attribute, ok := attributes["community_set"]
 
 	if !ok {
 		diags.AddError(
@@ -4674,7 +4674,7 @@ func (t Bgp1Type) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 			fmt.Sprintf(`local_preference expected to be basetypes.Int64Value, was: %T`, localPreferenceAttribute))
 	}
 
-	med1Attribute, ok := attributes["med_1"]
+	med1Attribute, ok := attributes["med"]
 
 	if !ok {
 		diags.AddError(
@@ -4843,7 +4843,7 @@ func NewBgp1Value(attributeTypes map[string]attr.Type, attributes map[string]att
 			fmt.Sprintf(`as_path_replace expected to be basetypes.ListValue, was: %T`, asPathReplaceAttribute))
 	}
 
-	communitySet1Attribute, ok := attributes["community_set_1"]
+	communitySet1Attribute, ok := attributes["community_set"]
 
 	if !ok {
 		diags.AddError(
@@ -4879,7 +4879,7 @@ func NewBgp1Value(attributeTypes map[string]attr.Type, attributes map[string]att
 			fmt.Sprintf(`local_preference expected to be basetypes.Int64Value, was: %T`, localPreferenceAttribute))
 	}
 
-	med1Attribute, ok := attributes["med_1"]
+	med1Attribute, ok := attributes["med"]
 
 	if !ok {
 		diags.AddError(
@@ -5002,9 +5002,9 @@ type Bgp1Value struct {
 	AsPathPrepend   basetypes.Int64Value  `tfsdk:"as_path_prepend"`
 	AsPathRemove    basetypes.BoolValue   `tfsdk:"as_path_remove"`
 	AsPathReplace   basetypes.ListValue   `tfsdk:"as_path_replace"`
-	CommunitySet1   basetypes.ObjectValue `tfsdk:"community_set_1"`
+	CommunitySet1   basetypes.ObjectValue `tfsdk:"community_set"`
 	LocalPreference basetypes.Int64Value  `tfsdk:"local_preference"`
-	Med1            basetypes.ObjectValue `tfsdk:"med_1"`
+	Med1            basetypes.ObjectValue `tfsdk:"med"`
 	SetOrigin       basetypes.StringValue `tfsdk:"set_origin"`
 	state           attr.ValueState
 }
@@ -5020,11 +5020,11 @@ func (v Bgp1Value) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 	attrTypes["as_path_replace"] = basetypes.ListType{
 		ElemType: types.Int64Type,
 	}.TerraformType(ctx)
-	attrTypes["community_set_1"] = basetypes.ObjectType{
+	attrTypes["community_set"] = basetypes.ObjectType{
 		AttrTypes: CommunitySet1Value{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
 	attrTypes["local_preference"] = basetypes.Int64Type{}.TerraformType(ctx)
-	attrTypes["med_1"] = basetypes.ObjectType{
+	attrTypes["med"] = basetypes.ObjectType{
 		AttrTypes: Med1Value{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
 	attrTypes["set_origin"] = basetypes.StringType{}.TerraformType(ctx)
@@ -5065,7 +5065,7 @@ func (v Bgp1Value) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["community_set_1"] = val
+		vals["community_set"] = val
 
 		val, err = v.LocalPreference.ToTerraformValue(ctx)
 
@@ -5081,7 +5081,7 @@ func (v Bgp1Value) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["med_1"] = val
+		vals["med"] = val
 
 		val, err = v.SetOrigin.ToTerraformValue(ctx)
 
@@ -5181,11 +5181,11 @@ func (v Bgp1Value) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 			"as_path_replace": basetypes.ListType{
 				ElemType: types.Int64Type,
 			},
-			"community_set_1": basetypes.ObjectType{
+			"community_set": basetypes.ObjectType{
 				AttrTypes: CommunitySet1Value{}.AttributeTypes(ctx),
 			},
 			"local_preference": basetypes.Int64Type{},
-			"med_1": basetypes.ObjectType{
+			"med": basetypes.ObjectType{
 				AttrTypes: Med1Value{}.AttributeTypes(ctx),
 			},
 			"set_origin": basetypes.StringType{},
@@ -5198,11 +5198,11 @@ func (v Bgp1Value) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 		"as_path_replace": basetypes.ListType{
 			ElemType: types.Int64Type,
 		},
-		"community_set_1": basetypes.ObjectType{
+		"community_set": basetypes.ObjectType{
 			AttrTypes: CommunitySet1Value{}.AttributeTypes(ctx),
 		},
 		"local_preference": basetypes.Int64Type{},
-		"med_1": basetypes.ObjectType{
+		"med": basetypes.ObjectType{
 			AttrTypes: Med1Value{}.AttributeTypes(ctx),
 		},
 		"set_origin": basetypes.StringType{},
@@ -5222,9 +5222,9 @@ func (v Bgp1Value) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 			"as_path_prepend":  v.AsPathPrepend,
 			"as_path_remove":   v.AsPathRemove,
 			"as_path_replace":  asPathReplaceVal,
-			"community_set_1":  communitySet1,
+			"community_set":    communitySet1,
 			"local_preference": v.LocalPreference,
-			"med_1":            med1,
+			"med":              med1,
 			"set_origin":       v.SetOrigin,
 		})
 
@@ -5292,11 +5292,11 @@ func (v Bgp1Value) AttributeTypes(ctx context.Context) map[string]attr.Type {
 		"as_path_replace": basetypes.ListType{
 			ElemType: types.Int64Type,
 		},
-		"community_set_1": basetypes.ObjectType{
+		"community_set": basetypes.ObjectType{
 			AttrTypes: CommunitySet1Value{}.AttributeTypes(ctx),
 		},
 		"local_preference": basetypes.Int64Type{},
-		"med_1": basetypes.ObjectType{
+		"med": basetypes.ObjectType{
 			AttrTypes: Med1Value{}.AttributeTypes(ctx),
 		},
 		"set_origin": basetypes.StringType{},
@@ -6292,7 +6292,7 @@ func (t MatchType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue
 
 	attributes := in.Attributes()
 
-	bgp2Attribute, ok := attributes["bgp_2"]
+	bgp2Attribute, ok := attributes["bgp"]
 
 	if !ok {
 		diags.AddError(
@@ -6440,7 +6440,7 @@ func NewMatchValue(attributeTypes map[string]attr.Type, attributes map[string]at
 		return NewMatchValueUnknown(), diags
 	}
 
-	bgp2Attribute, ok := attributes["bgp_2"]
+	bgp2Attribute, ok := attributes["bgp"]
 
 	if !ok {
 		diags.AddError(
@@ -6593,7 +6593,7 @@ func (t MatchType) ValueType(ctx context.Context) attr.Value {
 var _ basetypes.ObjectValuable = MatchValue{}
 
 type MatchValue struct {
-	Bgp2      basetypes.ObjectValue `tfsdk:"bgp_2"`
+	Bgp2      basetypes.ObjectValue `tfsdk:"bgp"`
 	Family    basetypes.ListValue   `tfsdk:"family"`
 	PrefixSet basetypes.StringValue `tfsdk:"prefix_set"`
 	Protocol  basetypes.StringValue `tfsdk:"protocol"`
@@ -6606,7 +6606,7 @@ func (v MatchValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error)
 	var val tftypes.Value
 	var err error
 
-	attrTypes["bgp_2"] = basetypes.ObjectType{
+	attrTypes["bgp"] = basetypes.ObjectType{
 		AttrTypes: Bgp2Value{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
 	attrTypes["family"] = basetypes.ListType{
@@ -6627,7 +6627,7 @@ func (v MatchValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error)
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["bgp_2"] = val
+		vals["bgp"] = val
 
 		val, err = v.Family.ToTerraformValue(ctx)
 
@@ -6717,7 +6717,7 @@ func (v MatchValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, d
 
 	if diags.HasError() {
 		return types.ObjectUnknown(map[string]attr.Type{
-			"bgp_2": basetypes.ObjectType{
+			"bgp": basetypes.ObjectType{
 				AttrTypes: Bgp2Value{}.AttributeTypes(ctx),
 			},
 			"family": basetypes.ListType{
@@ -6729,7 +6729,7 @@ func (v MatchValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, d
 	}
 
 	attributeTypes := map[string]attr.Type{
-		"bgp_2": basetypes.ObjectType{
+		"bgp": basetypes.ObjectType{
 			AttrTypes: Bgp2Value{}.AttributeTypes(ctx),
 		},
 		"family": basetypes.ListType{
@@ -6750,7 +6750,7 @@ func (v MatchValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, d
 	objVal, diags := types.ObjectValue(
 		attributeTypes,
 		map[string]attr.Value{
-			"bgp_2":      bgp2,
+			"bgp":        bgp2,
 			"family":     familyVal,
 			"prefix_set": v.PrefixSet,
 			"protocol":   v.Protocol,
@@ -6803,7 +6803,7 @@ func (v MatchValue) Type(ctx context.Context) attr.Type {
 
 func (v MatchValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
-		"bgp_2": basetypes.ObjectType{
+		"bgp": basetypes.ObjectType{
 			AttrTypes: Bgp2Value{}.AttributeTypes(ctx),
 		},
 		"family": basetypes.ListType{
