@@ -22,7 +22,9 @@ description: |-
 
 ### Optional
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `name` (String) name of the Policy
 - `namespace` (String) the namespace scope in which to operate
@@ -47,6 +49,7 @@ Optional:
 
 Optional:
 
+- `configured_name` (String) The name of the policy to configure on the device.
 - `default_action` (Attributes) The default action to apply if no other actions are defined. (see [below for nested schema](#nestedatt--spec--default_action))
 - `statement` (Attributes List) List of policy statements. (see [below for nested schema](#nestedatt--spec--statement))
 
@@ -57,6 +60,7 @@ Optional:
 
 - `bgp` (Attributes) Actions related to the BGP protocol. (see [below for nested schema](#nestedatt--spec--default_action--bgp))
 - `policy_result` (String) Final disposition for the route.
+- `tags` (Attributes) Manipulate internal route tags associated with the route. (see [below for nested schema](#nestedatt--spec--default_action--tags))
 
 <a id="nestedatt--spec--default_action--bgp"></a>
 ### Nested Schema for `spec.default_action.bgp`
@@ -92,6 +96,14 @@ Optional:
 
 
 
+<a id="nestedatt--spec--default_action--tags"></a>
+### Nested Schema for `spec.default_action.tags`
+
+Optional:
+
+- `tag_set` (String) Add tags to the route from the referenced Tag Set.
+
+
 
 <a id="nestedatt--spec--statement"></a>
 ### Nested Schema for `spec.statement`
@@ -112,6 +124,7 @@ Optional:
 
 - `bgp` (Attributes) Actions related to the BGP protocol. (see [below for nested schema](#nestedatt--spec--statement--action--bgp))
 - `policy_result` (String) Final disposition for the route.
+- `tags` (Attributes) Manipulate internal route tags associated with the route. (see [below for nested schema](#nestedatt--spec--statement--action--tags))
 
 <a id="nestedatt--spec--statement--action--bgp"></a>
 ### Nested Schema for `spec.statement.action.bgp`
@@ -147,6 +160,14 @@ Optional:
 
 
 
+<a id="nestedatt--spec--statement--action--tags"></a>
+### Nested Schema for `spec.statement.action.tags`
+
+Optional:
+
+- `tag_set` (String) Add tags to the route from the referenced Tag Set.
+
+
 
 <a id="nestedatt--spec--statement--match"></a>
 ### Nested Schema for `spec.statement.match`
@@ -157,6 +178,7 @@ Optional:
 - `family` (List of String) Address families that the route belongs to.
 - `prefix_set` (String) Reference to a PrefixSet resource.
 - `protocol` (String) The route protocol type to match.
+- `tags` (Attributes) Match based on the internal route tags associated with the route. (see [below for nested schema](#nestedatt--spec--statement--match--tags))
 
 <a id="nestedatt--spec--statement--match--bgp"></a>
 ### Nested Schema for `spec.statement.match.bgp`
@@ -178,7 +200,34 @@ Optional:
 
 
 
+<a id="nestedatt--spec--statement--match--tags"></a>
+### Nested Schema for `spec.statement.match.tags`
 
+Optional:
+
+- `tag_set` (String) Reference to a TagSet resource.
+
+
+
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Optional:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Optional:
+
+- `count` (Number)
 
 
 <a id="nestedatt--status"></a>

@@ -24,6 +24,7 @@ description: |-
 - `fields` (String) a comma-separated list of resource fields to fetch/return.  If unspecified, all fields are fetched.  If empty, only key-fields are fetched.
 - `filter` (String) an EQL "where" expression that will be used to filter the set of resources returned.
 - `label_selector` (String) a label selector string to filter the results based on CR labels
+- `labelselector` (String) Deprecated: a label selector string to filter the results based on CR labels
 
 ### Read-Only
 
@@ -40,7 +41,9 @@ Optional:
 
 Read-Only:
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--items--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--items--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--items--metadata))
 - `status` (Attributes) PolicyStatus defines the observed state of Policy. (see [below for nested schema](#nestedatt--items--status))
@@ -50,6 +53,7 @@ Read-Only:
 
 Optional:
 
+- `configured_name` (String) The name of the policy to configure on the device.
 - `default_action` (Attributes) The default action to apply if no other actions are defined. (see [below for nested schema](#nestedatt--items--spec--default_action))
 - `statement` (Attributes List) List of policy statements. (see [below for nested schema](#nestedatt--items--spec--statement))
 
@@ -60,6 +64,7 @@ Optional:
 
 - `bgp` (Attributes) Actions related to the BGP protocol. (see [below for nested schema](#nestedatt--items--spec--default_action--bgp))
 - `policy_result` (String) Final disposition for the route.
+- `tags` (Attributes) Manipulate internal route tags associated with the route. (see [below for nested schema](#nestedatt--items--spec--default_action--tags))
 
 <a id="nestedatt--items--spec--default_action--bgp"></a>
 ### Nested Schema for `items.spec.default_action.bgp`
@@ -95,6 +100,14 @@ Optional:
 
 
 
+<a id="nestedatt--items--spec--default_action--tags"></a>
+### Nested Schema for `items.spec.default_action.tags`
+
+Optional:
+
+- `tag_set` (String) Add tags to the route from the referenced Tag Set.
+
+
 
 <a id="nestedatt--items--spec--statement"></a>
 ### Nested Schema for `items.spec.statement`
@@ -112,6 +125,7 @@ Optional:
 
 - `bgp` (Attributes) Actions related to the BGP protocol. (see [below for nested schema](#nestedatt--items--spec--statement--action--bgp))
 - `policy_result` (String) Final disposition for the route.
+- `tags` (Attributes) Manipulate internal route tags associated with the route. (see [below for nested schema](#nestedatt--items--spec--statement--action--tags))
 
 <a id="nestedatt--items--spec--statement--action--bgp"></a>
 ### Nested Schema for `items.spec.statement.action.bgp`
@@ -147,6 +161,14 @@ Optional:
 
 
 
+<a id="nestedatt--items--spec--statement--action--tags"></a>
+### Nested Schema for `items.spec.statement.action.tags`
+
+Optional:
+
+- `tag_set` (String) Add tags to the route from the referenced Tag Set.
+
+
 
 <a id="nestedatt--items--spec--statement--match"></a>
 ### Nested Schema for `items.spec.statement.match`
@@ -157,6 +179,7 @@ Optional:
 - `family` (List of String) Address families that the route belongs to.
 - `prefix_set` (String) Reference to a PrefixSet resource.
 - `protocol` (String) The route protocol type to match.
+- `tags` (Attributes) Match based on the internal route tags associated with the route. (see [below for nested schema](#nestedatt--items--spec--statement--match--tags))
 
 <a id="nestedatt--items--spec--statement--match--bgp"></a>
 ### Nested Schema for `items.spec.statement.match.bgp`
@@ -178,7 +201,34 @@ Optional:
 
 
 
+<a id="nestedatt--items--spec--statement--match--tags"></a>
+### Nested Schema for `items.spec.statement.match.tags`
 
+Optional:
+
+- `tag_set` (String) Reference to a TagSet resource.
+
+
+
+
+
+<a id="nestedatt--items--alarms"></a>
+### Nested Schema for `items.alarms`
+
+Read-Only:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--items--deviations"></a>
+### Nested Schema for `items.deviations`
+
+Read-Only:
+
+- `count` (Number)
 
 
 <a id="nestedatt--items--metadata"></a>

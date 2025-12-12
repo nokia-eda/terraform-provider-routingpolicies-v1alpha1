@@ -22,7 +22,9 @@ description: |-
 
 ### Optional
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `name` (String) name of the CommunitySet
 - `namespace` (String) the namespace scope in which to operate
@@ -47,9 +49,29 @@ Optional:
 
 Optional:
 
+- `configured_name` (String) The name of the commmunityset to configure on the device.
 - `expression_match` (String) Options that determine the matching criteria that applies to the list of community members.
 - `match_set_options` (String) The matching criteria that applies to the Members list.
 - `members` (List of String) A standard BGP community value, regular expression or well-known name or else a large BGP community value or regular expression.
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Optional:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Optional:
+
+- `count` (Number)
 
 
 <a id="nestedatt--status"></a>

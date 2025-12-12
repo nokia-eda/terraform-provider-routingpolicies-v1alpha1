@@ -27,7 +27,9 @@ description: |-
 
 ### Read-Only
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--metadata))
 - `status` (Attributes) PrefixSetStatus defines the observed state of PrefixSet. (see [below for nested schema](#nestedatt--status))
@@ -37,6 +39,7 @@ description: |-
 
 Optional:
 
+- `configured_name` (String) The name of the prefixset to configure on the device.
 - `prefix` (Attributes List) List of IPv4 or IPv6 prefixes in CIDR notation. (see [below for nested schema](#nestedatt--spec--prefix))
 
 <a id="nestedatt--spec--prefix"></a>
@@ -49,6 +52,25 @@ Optional:
 - `prefix` (String) The IPv4 or IPv6 prefix in CIDR notation with mask.
 - `start_range` (Number) If specifying a range, this is the start of the range.
 
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Read-Only:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Read-Only:
+
+- `count` (Number)
 
 
 <a id="nestedatt--metadata"></a>

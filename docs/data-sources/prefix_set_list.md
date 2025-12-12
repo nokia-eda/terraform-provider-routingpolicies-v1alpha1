@@ -24,6 +24,7 @@ description: |-
 - `fields` (String) a comma-separated list of resource fields to fetch/return.  If unspecified, all fields are fetched.  If empty, only key-fields are fetched.
 - `filter` (String) an EQL "where" expression that will be used to filter the set of resources returned.
 - `label_selector` (String) a label selector string to filter the results based on CR labels
+- `labelselector` (String) Deprecated: a label selector string to filter the results based on CR labels
 
 ### Read-Only
 
@@ -40,7 +41,9 @@ Optional:
 
 Read-Only:
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--items--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--items--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--items--metadata))
 - `status` (Attributes) PrefixSetStatus defines the observed state of PrefixSet. (see [below for nested schema](#nestedatt--items--status))
@@ -50,6 +53,7 @@ Read-Only:
 
 Optional:
 
+- `configured_name` (String) The name of the prefixset to configure on the device.
 - `prefix` (Attributes List) List of IPv4 or IPv6 prefixes in CIDR notation. (see [below for nested schema](#nestedatt--items--spec--prefix))
 
 <a id="nestedatt--items--spec--prefix"></a>
@@ -62,6 +66,25 @@ Optional:
 - `prefix` (String) The IPv4 or IPv6 prefix in CIDR notation with mask.
 - `start_range` (Number) If specifying a range, this is the start of the range.
 
+
+
+<a id="nestedatt--items--alarms"></a>
+### Nested Schema for `items.alarms`
+
+Read-Only:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--items--deviations"></a>
+### Nested Schema for `items.deviations`
+
+Read-Only:
+
+- `count` (Number)
 
 
 <a id="nestedatt--items--metadata"></a>

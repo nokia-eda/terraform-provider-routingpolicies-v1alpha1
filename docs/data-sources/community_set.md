@@ -27,7 +27,9 @@ description: |-
 
 ### Read-Only
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--metadata))
 - `status` (Attributes) CommunitySetStatus defines the observed state of CommunitySet (see [below for nested schema](#nestedatt--status))
@@ -37,9 +39,29 @@ description: |-
 
 Optional:
 
+- `configured_name` (String) The name of the commmunityset to configure on the device.
 - `expression_match` (String) Options that determine the matching criteria that applies to the list of community members.
 - `match_set_options` (String) The matching criteria that applies to the Members list.
 - `members` (List of String) A standard BGP community value, regular expression or well-known name or else a large BGP community value or regular expression.
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Read-Only:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Read-Only:
+
+- `count` (Number)
 
 
 <a id="nestedatt--metadata"></a>

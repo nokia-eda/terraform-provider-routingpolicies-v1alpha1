@@ -3,6 +3,46 @@ app_group:
       path: /apps/routingpolicies.eda.nokia.com
       method: GET
 
+intent_targets:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}/_targets
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name}/_targets
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name}/_targets
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}/_targets
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name}/_targets
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}/_targets
+      method: GET
+
+k8_s_topology_request:
+  - create:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}/_topology
+      method: POST
+  - create:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name}/_topology
+      method: POST
+  - create:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name}/_topology
+      method: POST
+  - create:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}/_topology
+      method: POST
+  - create:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name}/_topology
+      method: POST
+  - create:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}/_topology
+      method: POST
+
 patch:
   - update:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}
@@ -15,6 +55,12 @@ patch:
       method: PATCH
   - update:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}
+      method: PATCH
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name}
+      method: PATCH
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}
       method: PATCH
 
 resource_history:
@@ -29,6 +75,12 @@ resource_history:
       method: GET
   - read:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}/_revs
       method: GET
 
 resource_list:
@@ -49,6 +101,12 @@ resource_topology:
   - read:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}/_topology
       method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}/_topology
+      method: GET
 
 status:
   - delete:
@@ -62,6 +120,12 @@ status:
       method: DELETE
   - delete:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}
+      method: DELETE
+  - delete:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name}
+      method: DELETE
+  - delete:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}
       method: DELETE
 
 ui_result:
@@ -177,37 +241,124 @@ com.nokia.eda.routingpolicies.v1alpha1.prefix_set_deleted_resources:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/_deleted
       method: GET
 
-totalPaths: 27
-totalSchemas: 48
-usedSchemas: 19
-unusedSchemas: 29
+com.nokia.eda.routingpolicies.v1alpha1.tag_set:
+  - create:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets
+      method: POST
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}
+      method: GET
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}
+      method: PUT
+
+com.nokia.eda.routingpolicies.v1alpha1.tag_set_deployment:
+  - create:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments
+      method: POST
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name}
+      method: GET
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name}
+      method: PUT
+
+com.nokia.eda.routingpolicies.v1alpha1.tag_set_deployment_list:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments
+      method: GET
+  - delete:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments
+      method: DELETE
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/tagsetdeployments
+      method: GET
+
+com.nokia.eda.routingpolicies.v1alpha1.tag_set_deployment_deleted_resources:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/_deleted
+      method: GET
+
+com.nokia.eda.routingpolicies.v1alpha1.tag_set_list:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets
+      method: GET
+  - delete:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets
+      method: DELETE
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/tagsets
+      method: GET
+
+com.nokia.eda.routingpolicies.v1alpha1.tag_set_deleted_resources:
+  - read:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/_deleted
+      method: GET
+
+totalPaths: 45
+totalSchemas: 89
+usedSchemas: 27
+unusedSchemas: 62
 unusedSchemaList:
   - AppGroupVersion
   - ErrorIndex
   - ErrorItem
   - ErrorResponse
+  - IntentTarget
   - K8SPatchOp
   - OverlayState
   - Resource
   - ResourceHistoryEntry
   - StatusDetails
   - TopoAttrMetadata
+  - TopoAttribute
+  - TopoBoolExpression
+  - TopoBoolLiteral
   - TopoElemMetadata
-  - TopoLinkEndpoint
+  - TopoEndpointBoolExpression
+  - TopoField
+  - TopoFixedBoolExpression
+  - TopoLabelSelector
+  - TopoLiteralStatusOrBadge
+  - TopoLiteralValue
+  - TopoLogicalExpression
   - TopoNodeGrouping
   - TopoOverlayEndpoint
   - TopoOverlayEndpointState
   - TopoOverlayLink
+  - TopoOverlayLinkGroup
+  - TopoOverlayLinkGroupEndpoint
   - TopoOverlayLinkState
   - TopoOverlayNode
+  - TopoOverlayNodeOrGroup
   - TopoOverlayNodeState
+  - TopoOverlayValue
   - TopoSchema
+  - TopoStateFilter
+  - TopoValue
+  - TopoValueExpression
   - Topology
   - com.nokia.eda.routingpolicies.v1alpha1.ASPathSet_DeletedResourceEntry
+  - com.nokia.eda.routingpolicies.v1alpha1.ASPathSet_alarms
+  - com.nokia.eda.routingpolicies.v1alpha1.ASPathSet_deviations
   - com.nokia.eda.routingpolicies.v1alpha1.ASPathSet_metadata
   - com.nokia.eda.routingpolicies.v1alpha1.CommunitySet_DeletedResourceEntry
+  - com.nokia.eda.routingpolicies.v1alpha1.CommunitySet_alarms
+  - com.nokia.eda.routingpolicies.v1alpha1.CommunitySet_deviations
   - com.nokia.eda.routingpolicies.v1alpha1.CommunitySet_metadata
   - com.nokia.eda.routingpolicies.v1alpha1.Policy_DeletedResourceEntry
+  - com.nokia.eda.routingpolicies.v1alpha1.Policy_alarms
+  - com.nokia.eda.routingpolicies.v1alpha1.Policy_deviations
   - com.nokia.eda.routingpolicies.v1alpha1.Policy_metadata
   - com.nokia.eda.routingpolicies.v1alpha1.PrefixSet_DeletedResourceEntry
+  - com.nokia.eda.routingpolicies.v1alpha1.PrefixSet_alarms
+  - com.nokia.eda.routingpolicies.v1alpha1.PrefixSet_deviations
   - com.nokia.eda.routingpolicies.v1alpha1.PrefixSet_metadata
+  - com.nokia.eda.routingpolicies.v1alpha1.TagSetDeployment_DeletedResourceEntry
+  - com.nokia.eda.routingpolicies.v1alpha1.TagSetDeployment_alarms
+  - com.nokia.eda.routingpolicies.v1alpha1.TagSetDeployment_deviations
+  - com.nokia.eda.routingpolicies.v1alpha1.TagSetDeployment_metadata
+  - com.nokia.eda.routingpolicies.v1alpha1.TagSet_DeletedResourceEntry
+  - com.nokia.eda.routingpolicies.v1alpha1.TagSet_alarms
+  - com.nokia.eda.routingpolicies.v1alpha1.TagSet_deviations
+  - com.nokia.eda.routingpolicies.v1alpha1.TagSet_metadata
