@@ -10,7 +10,7 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/_deleted,GET,com.nokia.eda.routingpolicies.v1alpha1.ASPathSet_DeletedResources,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name},DELETE,Status,as_path_set,true,false,true
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name},GET,com.nokia.eda.routingpolicies.v1alpha1.ASPathSet,as_path_set,true,true,true
-/apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name},PATCH,Patch,,false,false,false
+/apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name},PATCH,com.nokia.eda.routingpolicies.v1alpha1.ASPathSet,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name},PUT,com.nokia.eda.routingpolicies.v1alpha1.ASPathSet,as_path_set,true,false,true
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}/_revs,GET,ResourceHistory,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}/_targets,GET,IntentTargets,,false,false,false
@@ -22,7 +22,7 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/_deleted,GET,com.nokia.eda.routingpolicies.v1alpha1.CommunitySet_DeletedResources,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name},DELETE,Status,community_set,true,false,true
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name},GET,com.nokia.eda.routingpolicies.v1alpha1.CommunitySet,community_set,true,true,true
-/apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name},PATCH,Patch,,false,false,false
+/apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name},PATCH,com.nokia.eda.routingpolicies.v1alpha1.CommunitySet,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name},PUT,com.nokia.eda.routingpolicies.v1alpha1.CommunitySet,community_set,true,false,true
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name}/_revs,GET,ResourceHistory,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name}/_targets,GET,IntentTargets,,false,false,false
@@ -34,7 +34,7 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/_deleted,GET,com.nokia.eda.routingpolicies.v1alpha1.Policy_DeletedResources,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name},DELETE,Status,policy,true,false,true
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name},GET,com.nokia.eda.routingpolicies.v1alpha1.Policy,policy,true,true,true
-/apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name},PATCH,Patch,,false,false,false
+/apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name},PATCH,com.nokia.eda.routingpolicies.v1alpha1.Policy,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name},PUT,com.nokia.eda.routingpolicies.v1alpha1.Policy,policy,true,false,true
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name}/_revs,GET,ResourceHistory,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name}/_targets,GET,IntentTargets,,false,false,false
@@ -46,7 +46,7 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/_deleted,GET,com.nokia.eda.routingpolicies.v1alpha1.PrefixSet_DeletedResources,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name},DELETE,Status,prefix_set,true,false,true
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name},GET,com.nokia.eda.routingpolicies.v1alpha1.PrefixSet,prefix_set,true,true,true
-/apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name},PATCH,Patch,,false,false,false
+/apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name},PATCH,com.nokia.eda.routingpolicies.v1alpha1.PrefixSet,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name},PUT,com.nokia.eda.routingpolicies.v1alpha1.PrefixSet,prefix_set,true,false,true
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}/_revs,GET,ResourceHistory,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}/_targets,GET,IntentTargets,,false,false,false
@@ -58,7 +58,7 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/_deleted,GET,com.nokia.eda.routingpolicies.v1alpha1.TagSetDeployment_DeletedResources,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name},DELETE,Status,tag_set_deployment,true,false,true
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name},GET,com.nokia.eda.routingpolicies.v1alpha1.TagSetDeployment,tag_set_deployment,true,true,true
-/apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name},PATCH,Patch,,false,false,false
+/apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name},PATCH,com.nokia.eda.routingpolicies.v1alpha1.TagSetDeployment,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name},PUT,com.nokia.eda.routingpolicies.v1alpha1.TagSetDeployment,tag_set_deployment,true,false,true
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name}/_revs,GET,ResourceHistory,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name}/_targets,GET,IntentTargets,,false,false,false
@@ -70,7 +70,7 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/_deleted,GET,com.nokia.eda.routingpolicies.v1alpha1.TagSet_DeletedResources,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name},DELETE,Status,tag_set,true,false,true
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name},GET,com.nokia.eda.routingpolicies.v1alpha1.TagSet,tag_set,true,true,true
-/apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name},PATCH,Patch,,false,false,false
+/apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name},PATCH,com.nokia.eda.routingpolicies.v1alpha1.TagSet,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name},PUT,com.nokia.eda.routingpolicies.v1alpha1.TagSet,tag_set,true,false,true
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}/_revs,GET,ResourceHistory,,false,false,false
 /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}/_targets,GET,IntentTargets,,false,false,false

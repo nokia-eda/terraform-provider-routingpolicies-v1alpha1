@@ -43,26 +43,6 @@ k8_s_topology_request:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}/_topology
       method: POST
 
-patch:
-  - update:
-      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}
-      method: PATCH
-  - update:
-      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name}
-      method: PATCH
-  - update:
-      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name}
-      method: PATCH
-  - update:
-      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}
-      method: PATCH
-  - update:
-      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name}
-      method: PATCH
-  - update:
-      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}
-      method: PATCH
-
 resource_history:
   - read:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}/_revs
@@ -143,6 +123,9 @@ com.nokia.eda.routingpolicies.v1alpha1.as_path_set:
   - update:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}
       method: PUT
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/aspathsets/{name}
+      method: PATCH
 
 com.nokia.eda.routingpolicies.v1alpha1.as_path_set_list:
   - read:
@@ -170,6 +153,9 @@ com.nokia.eda.routingpolicies.v1alpha1.community_set:
   - update:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name}
       method: PUT
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/communitysets/{name}
+      method: PATCH
 
 com.nokia.eda.routingpolicies.v1alpha1.community_set_list:
   - read:
@@ -197,6 +183,9 @@ com.nokia.eda.routingpolicies.v1alpha1.policy:
   - update:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name}
       method: PUT
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/policys/{name}
+      method: PATCH
 
 com.nokia.eda.routingpolicies.v1alpha1.policy_list:
   - read:
@@ -224,6 +213,9 @@ com.nokia.eda.routingpolicies.v1alpha1.prefix_set:
   - update:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}
       method: PUT
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/prefixsets/{name}
+      method: PATCH
 
 com.nokia.eda.routingpolicies.v1alpha1.prefix_set_list:
   - read:
@@ -251,6 +243,9 @@ com.nokia.eda.routingpolicies.v1alpha1.tag_set:
   - update:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}
       method: PUT
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsets/{name}
+      method: PATCH
 
 com.nokia.eda.routingpolicies.v1alpha1.tag_set_deployment:
   - create:
@@ -262,6 +257,9 @@ com.nokia.eda.routingpolicies.v1alpha1.tag_set_deployment:
   - update:
       path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name}
       method: PUT
+  - update:
+      path: /apps/routingpolicies.eda.nokia.com/v1alpha1/namespaces/{namespace}/tagsetdeployments/{name}
+      method: PATCH
 
 com.nokia.eda.routingpolicies.v1alpha1.tag_set_deployment_list:
   - read:
@@ -297,8 +295,8 @@ com.nokia.eda.routingpolicies.v1alpha1.tag_set_deleted_resources:
 
 totalPaths: 45
 totalSchemas: 89
-usedSchemas: 27
-unusedSchemas: 62
+usedSchemas: 26
+unusedSchemas: 63
 unusedSchemaList:
   - AppGroupVersion
   - ErrorIndex
@@ -307,6 +305,7 @@ unusedSchemaList:
   - IntentTarget
   - K8SPatchOp
   - OverlayState
+  - Patch
   - Resource
   - ResourceHistoryEntry
   - StatusDetails
